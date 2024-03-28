@@ -4,7 +4,11 @@ const Schema = mongoose.Schema
 
 const profileSchema = new Schema({
   name: String,
-  photo: String
+  photo: String,
+  tvShowsToWatch: [{type: Schema.Types.ObjectId, ref: 'TvShow'}],
+  tvShowsWatchingNow: [{type: Schema.Types.ObjectId, ref: 'TvShow'}],
+  watchedTvShows: [{type: Schema.Types.ObjectId, ref: 'TvShow'}],
+  faveTvShows: [{type: Schema.Types.ObjectId, ref: 'TvShow'}],
 },{
   timestamps: true,
 })
