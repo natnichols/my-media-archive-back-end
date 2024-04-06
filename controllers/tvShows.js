@@ -16,7 +16,7 @@ export async function search(req, res) {
     const apiResponse = await fetch(`${tmdbUrl}/search/tv?query=${req.body.query}&include_adult=false&language=en-US?api_key=${process.env.TMDB_API_KEY}`, config)
     // console.log(apiResponse)
     const apiData = await apiResponse.json()
-    res.json(apiData)
+    res.json(apiData.results)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
