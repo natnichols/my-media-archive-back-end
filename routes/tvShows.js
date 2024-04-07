@@ -13,7 +13,7 @@ router.use(decodeUserFromToken)
 // GET to localhost:3001/api/tvShows
 
 // GET to localhost:3001/api/tvShows/:tmdbId
-
+router.get('/:tmdbId', checkAuth, tvShowsCtrl.show)
 // POST to localhost:3001/api/tvShows
 
 // POST to localhost:3001/api/tvShows
