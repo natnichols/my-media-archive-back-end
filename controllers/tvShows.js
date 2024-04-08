@@ -18,7 +18,7 @@ export async function search(req, res) {
     const apiData = await apiResponse.json()
     res.json(apiData.results)
   } catch (err) {
-    console.log(err)
+    console.log(`🚨`, err)
     res.status(500).json(err)
   }
 }
@@ -37,7 +37,7 @@ export async function show(req, res) {
     const apiData = await apiResponse.json()
     res.json(apiData)
   } catch (err) { 
-    console.log(err)
+    console.log(`🚨`, err)
     res.status(500).json(err)
   }
 }

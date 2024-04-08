@@ -20,13 +20,13 @@ async function signup(req, res) {
     const token = createJWT(newUser)
     res.status(200).json({ token })
   } catch (err) {
-    console.log(err)
+    console.log(`🚨`, err)
     try {
       if (req.body.profile) {
         await Profile.findByIdAndDelete(req.body.profile)
       }
     } catch (err) {
-      console.log(err)
+      console.log(`🚨`, err)
       return res.status(500).json({ err: err.message })
     }
     res.status(500).json({ err: err.message })
@@ -75,7 +75,7 @@ async function changePassword(req, res) {
 /* --== Helper Functions ==-- */
 
 function handleAuthError(err, res) {
-  console.log(err)
+  console.log(`🚨`, err)
   const { message } = err
   if (message === 'User not found' || message === 'Incorrect password') {
     res.status(401).json({ err: message })
