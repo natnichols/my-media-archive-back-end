@@ -21,7 +21,7 @@ const tvShowSchema = new Schema({
   // airDate: Date,
   // description: String,
   watched: Number,
-  episodes: [tvEpisodeSchema],
+  watchedEpisodes: [tvEpisodeSchema],
 }, {
   timestamps: true,
 })
