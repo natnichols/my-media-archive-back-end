@@ -41,3 +41,18 @@ export async function show(req, res) {
     res.status(500).json(err)
   }
 }
+
+export async function create(req, res) {
+  // add an addedBy prop to req.body
+  req.body.addedBy = req.user.profile
+  // create the new tvShow
+  const tvShow = await TvShow.create(req.body)
+  // find the profile of the logged in user (populate tvShows)
+  const profile = await Profile.findById(req.user.profile).populate('faveTvShows')
+  // add the full tvShow to the profile
+  profile.faveTvShows.push(tvShow)
+  // save the profile
+  await profile.save()
+  // respond to the front end with updated profile
+  res.json(profile)
+}
