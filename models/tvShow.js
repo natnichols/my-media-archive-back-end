@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const tvEpisodeSchema = new Schema({
-  owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  addedBy: {type: Schema.Types.ObjectId, ref: 'Profile'},
   tmdbId: Number,
   title: String,
   // airDate: Date,
@@ -15,7 +15,7 @@ const tvEpisodeSchema = new Schema({
 })
 
 const tvShowSchema = new Schema({
-  owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  addedBy: {type: Schema.Types.ObjectId, ref: 'Profile'},
   tmdbId: Number,
   title: String,
   // airDate: Date,
